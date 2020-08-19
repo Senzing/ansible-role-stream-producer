@@ -1,0 +1,23 @@
+---
+- name: Check if Stream Producer is already installed.
+  stat: path="{{ stream_producer_path }}/{{ stream_producer_file }}"
+  register: stream_producer_installed
+
+- name: Download stream producer
+  get_url:
+    url: "https://raw.githubusercontent.com/Senzing/stream-producer/1.2.2/stream-producer.py"
+    dest: "{{ stream_producer_path }}/{{ stream_producer_file }}"
+    mode: '0755'
+  when: not stream_producer_installed.stat.exists
+
+- name: Download stream producer dependencies
+  get_url:
+    url: "https://raw.githubusercontent.com/Senzing/stream-producer/1.2.2/requirements.txt"
+    dest: "{{ stream_producer_dependency_file }}"
+    mode: '0755'
+  when: not stream_producer_installed.stat.exists
+
+- name: Install stream producer dependencies
+  pip:
+    requirements: "{{ stream_producer_dependency_file }}"
+  when: not stream_producer_installed.stat.exists

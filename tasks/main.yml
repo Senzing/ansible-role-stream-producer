@@ -1,2 +1,6 @@
 ---
-# tasks file for test-role
+# Variable configuration.
+- include_tasks: variables.yml
+
+# Setup/install tasks.
+- include_tasks: setup.yml
