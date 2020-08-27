@@ -5,7 +5,7 @@
 
 - name: Define stream producer file
   set_fact:
-    stream_producer_path: "stream-producer.py"
+    stream_producer_file: "stream-producer.py"
   when: stream_producer_file is not defined
 
 - name: Define stream producer dependencies file
