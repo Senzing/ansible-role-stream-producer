@@ -1,0 +1,14 @@
+name: Pull Request Molecule Unit Tests for Ansible Role Senzing Stream Producer
+
+on:
+  push:
+    branches:
+      - issue-3.chia
+
+jobs:
+  prExecuteMoleculeUnitTests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Ansible Molecule
+        uses: gofrolist/molecule-action@v2.0.0
