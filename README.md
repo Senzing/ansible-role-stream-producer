@@ -1,31 +1,33 @@
 ansible-role-stream-producer
 =========
 
-A brief description of the role goes here.
+This role builds the Senzing Stream Producer. It installs the binary into `/usr/local/bin`
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+To install the python packages required for Stream Producer, python 3.8 and above is needed, along with pip 20.0 and above.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+    stream_producer_version: "1.2.2"
+
+The Stream Producer version that is being used. Substitute the version by passing in a variable file.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+   - hosts: senzing
+     roles:
+       - { role: senzing.stream_producer }
 
 License
 -------
@@ -35,4 +37,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+This role was created in 2020 by [Mah Chia Hui](https://github.com/mahchiahui),
