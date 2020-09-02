@@ -25,9 +25,9 @@ None.
 Example Playbook
 ----------------
 
-   - hosts: senzing
-     roles:
-       - { role: senzing.stream_producer }
+    - hosts: senzing
+      roles:
+        - { role: senzing.stream_producer }
 
 License
 -------
