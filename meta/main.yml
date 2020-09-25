@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: chia hui mah
+  role_name: stream-producer
   description: stream producer setup
   company: Senzing
   license: MIT
