@@ -3,7 +3,7 @@ galaxy_info:
   author: chia hui mah
   description: stream producer setup
   company: Senzing
-  license: license (GPL-2.0-or-later, MIT, etc)
+  license: MIT
   min_ansible_version: 2.9
 
   #
