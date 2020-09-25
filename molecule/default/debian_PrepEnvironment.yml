@@ -1,0 +1,44 @@
+---
+- name: Intall environmental components if needed
+  apt:
+    name:
+      - "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - python3-pip
+    - git
+  when: "'{{ item }}' not in required_packages_check.ansible_facts.packages"
+
+- name: Install python 3.8 dependencies
+  apt:
+    pkg:
+    - build-essential
+    - zlib1g-dev
+    - libncurses5-dev
+    - libgdbm-dev
+    - libnss3-dev
+    - libssl-dev
+    - libsqlite3-dev
+    - libreadline-dev
+    - libffi-dev
+    - curl
+    - libbz2-dev
+    state: present
+
+- name: Download python3.8 file
+  get_url:
+    url: https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
+    dest: /tmp/Python-3.8.5.tgz
+    mode: '0777'
+
+- name: Extract python3.8
+  unarchive:
+    src: /tmp/Python-3.8.5.tgz
+    dest: /tmp
+    remote_src: yes
+
+- name: Install python3.8
+  shell: cd /tmp/Python-3.8.5 && sudo ./configure --enable-optimizations && sudo make altinstall
+  args:
+    executable: /bin/bash

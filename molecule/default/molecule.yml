@@ -4,9 +4,22 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: python:3.8.5-buster
+  - name: debian-test
+    command: /sbin/init
+    image: senzingfactory/debian-molecule-test-environment:1.0.0
+    privileged: true
     pre_build_image: true
+    tty: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: centos-test
+    command: /sbin/init
+    image: senzingfactory/centos-molecule-test-environment:1.0.0
+    privileged: true
+    pre_build_image: true
+    tty: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 scenario:
   name: default
   test_sequence:
