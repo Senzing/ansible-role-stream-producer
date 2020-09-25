@@ -20,7 +20,7 @@ before_script:
   - cd ../
   - mv ansible-role-$ROLE_NAME Senzing.$ROLE_NAME
   - cd Senzing.$ROLE_NAME
-s
+
 script:
   # Run tests.
   - molecule test
