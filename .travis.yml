@@ -5,7 +5,7 @@ services: docker
 # Install ansible
 env:
   global:
-    - ROLE_NAME: mysql
+    - ROLE_NAME: stream-producer
 
 before_install:
   # Upgrade Docker to work with docker-py.
@@ -20,7 +20,7 @@ before_script:
   - cd ../
   - mv ansible-role-$ROLE_NAME Senzing.$ROLE_NAME
   - cd Senzing.$ROLE_NAME
-
+s
 script:
   # Run tests.
   - molecule test
