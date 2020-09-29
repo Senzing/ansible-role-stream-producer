@@ -1,7 +1,20 @@
 ansible-role-stream-producer
 =========
 
-This role builds the Senzing Stream Producer. It installs the binary into `/usr/local/bin`
+This role setups Senzing Stream Producer. It installs the binary into `/usr/local/bin`
+
+Installation
+------------
+Use `ansible-galaxy install senzing.stream_producer` to install the latest stable release of the role on your system.
+
+The following are the supported Stream Producer versions.
+
+| Stream Producer version|Galaxy Version|Path to Install|
+|----------|:-------------:|:-------------:|
+|1.2.2|1.2.2|`ansible-galaxy install senzing.stream_producer:1.2.2`|
+|1.2.0|1.2.0|`ansible-galaxy install senzing.stream_producer:1.2.0`|
+|1.1.0|1.1.0|`ansible-galaxy install senzing.stream_producer:1.1.0`|
+|1.0.0|1.0.0|`ansible-galaxy install senzing.stream_producer:1.0.0`|
 
 Requirements
 ------------
@@ -26,13 +39,16 @@ Example Playbook
 ----------------
 
     - hosts: senzing
+      vars:
+        stream_producer_version: '1.2.2'
+
       roles:
-        - { role: senzing.stream_producer }
+        - senzing.stream_producer
 
 License
 -------
 
-BSD
+Apache 2
 
 Author Information
 ------------------
