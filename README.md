@@ -1,6 +1,8 @@
 ansible-role-stream-producer
 =========
 
+[![Build Status](https://travis-ci.com/Senzing/ansible-role-stream-producer.svg?branch=master)](https://travis-ci.com/github/Senzing/ansible-role-stream-producer)
+
 This role setups Senzing Stream Producer. It installs the binary into `/usr/local/bin`
 
 Installation
