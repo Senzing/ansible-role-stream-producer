@@ -17,13 +17,6 @@
     mode: '0755'
   when: not stream_producer_installed.stat.exists
 
-- name: upgrade pip
-  pip:
-    name: pip
-    executable: pip3
-    state: latest
-
 - name: Install Stream Producer's dependencies
   pip:
     requirements: "{{ stream_producer_dependency_file }}"
-    executable: pip3.8

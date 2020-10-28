@@ -55,4 +55,4 @@ Apache 2
 Author Information
 ------------------
 
-This role was created in 2020 by [Mah Chia Hui](https://github.com/mahchiahui),
+This role was created in 2020 by [Mah Chia Hui](https://github.com/mahchiahui)
