@@ -24,11 +24,4 @@
   include_tasks: "install-python38-{{ ansible_os_family }}.yml"
 
 - name: Install Stream Producer's dependencies
-  pip:
-    name: setuptools
-    executable: pip3.8
-
-- name: Install Stream Producer's dependencies
-  pip:
-    requirements: "{{ stream_producer_dependency_file }}"
-    executable: pip3.8
+  command: pip3.8 install -r {{ stream_producer_dependency_file }}
