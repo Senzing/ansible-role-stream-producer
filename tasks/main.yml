@@ -1,4 +1,10 @@
 ---
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+  
+- include: install-python38-Debian.yml
+  when: ansible_os_family == 'Debian'
+
 - name: Check if Stream Producer is already installed.
   stat: path="{{ stream_producer_path }}/{{ stream_producer_file }}"
   register: stream_producer_installed
@@ -17,6 +23,10 @@
     mode: '0755'
   when: not stream_producer_installed.stat.exists
 
+- name: Include python 3.8 install tasks
+  include_tasks: "install-python38-{{ ansible_os_family }}.yml"
+
 - name: Install Stream Producer's dependencies
   pip:
     requirements: "{{ stream_producer_dependency_file }}"
+    executable: pip3.8
