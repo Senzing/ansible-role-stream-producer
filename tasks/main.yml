@@ -27,4 +27,4 @@
   command: pip3.8 install -r {{ stream_producer_dependency_file }}
 
 - name: Make python 3.8 an alternative with high priority
-  command: update-alternatives --install /usr/bin/python python /usr/bin/python3.8 10
+  command: update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 10
