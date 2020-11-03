@@ -5,10 +5,6 @@
       package_facts:
         manager: auto
       register: required_packages_check
-    - include_tasks: redhat_PrepEnvironment.yml
-      when: ansible_os_family == 'RedHat'
-    - include_tasks: debian_PrepEnvironment.yml
-      when: ansible_os_family == 'Debian'
   hosts: all
   tasks:
     - name: "Include ansible-role-stream-producer"
