@@ -1,4 +1,7 @@
 ---
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
 - name: Check if Stream Producer is already installed.
   stat: path="{{ stream_producer_path }}/{{ stream_producer_file }}"
   register: stream_producer_installed
@@ -17,13 +20,11 @@
     mode: '0755'
   when: not stream_producer_installed.stat.exists
 
-- name: upgrade pip
-  pip:
-    name: pip
-    executable: pip3
-    state: latest
+- name: Include python 3.8 install tasks
+  include_tasks: "install-python38-{{ ansible_os_family }}.yml"
 
 - name: Install Stream Producer's dependencies
-  pip:
-    requirements: "{{ stream_producer_dependency_file }}"
-    executable: pip3.8
+  command: pip3.8 install -r {{ stream_producer_dependency_file }}
+
+- name: Make python 3.8 an alternative with high priority
+  command: update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 10

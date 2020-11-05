@@ -5,3 +5,9 @@ stream_producer_version: 1.2.2
 stream_producer_path: "/usr/local/bin"
 stream_producer_file: "stream-producer.py"
 stream_producer_dependency_file: "/tmp/requirements.txt"
+
+compiled_python_version: 3.8.0
+compiled_python_dist_name:  "Python-{{ compiled_python_version }}"
+compiled_python_tarball: "{{ compiled_python_dist_name }}.tar.xz"
+compiled_python_build_dir: "/tmp"
+compiled_python_cleanup: False  # if true, will remove make directory after build.
